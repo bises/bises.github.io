@@ -1,37 +1,45 @@
-import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
+import { NavbarComponent } from './layout/navbar/navbar.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HeroComponent } from './sections/hero/hero.component';
+import { AboutComponent } from './sections/about/about.component';
+import { ExperienceComponent } from './sections/experience/experience.component';
+import { SkillsComponent } from './sections/skills/skills.component';
+import { ProjectsComponent } from './sections/projects/projects.component';
+import { CertificationsComponent } from './sections/certifications/certifications.component';
+import { RecognitionsComponent } from './sections/recognitions/recognitions.component';
+import { EducationComponent } from './sections/education/education.component';
+import { ContactComponent } from './sections/contact/contact.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  imports: [NgFor]
+  imports: [
+    NavbarComponent,
+    FooterComponent,
+    HeroComponent,
+    AboutComponent,
+    ExperienceComponent,
+    SkillsComponent,
+    ProjectsComponent,
+    CertificationsComponent,
+    RecognitionsComponent,
+    EducationComponent,
+    ContactComponent,
+  ],
+  template: `
+    <app-navbar />
+    <main>
+      <app-hero />
+      <app-about />
+      <app-experience />
+      <app-skills />
+      <app-projects />
+      <app-certifications />
+      <app-recognitions />
+      <app-education />
+      <app-contact />
+    </main>
+    <app-footer />
+  `,
 })
-export class AppComponent {
-  title = 'Bishesh Acharya';
-
-  projects = [
-    { image: 'assets/angular.png', title: 'Angular Application', description: 'Enterprise Angular application with modular architecture and best practices.' },
-    { image: 'assets/microfrontend.png', title: 'Micro Frontend', description: 'Micro frontend architecture enabling independent team deployments.' },
-    { image: 'assets/covid.png', title: 'COVID Tracker', description: 'Real-time COVID-19 data tracking and visualization dashboard.' },
-    { image: 'assets/credit.png', title: 'Credit Application', description: 'Credit processing system with automated workflows.' },
-    { image: 'assets/split.png', title: 'Split Testing', description: 'A/B testing platform for feature experimentation and rollout.' },
-    { image: 'assets/git.png', title: 'Git Workflow', description: 'Streamlined Git branching strategy and CI/CD pipelines.' },
-    { image: 'assets/tfs.png', title: 'TFS Migration', description: 'Large-scale migration from TFS to modern Git-based workflows.' },
-    { image: 'assets/pbd.png', title: 'PBD Platform', description: 'Platform-based development enabling rapid feature delivery.' },
-    { image: 'assets/lcss.PNG', title: 'LCSS System', description: 'Low-code self-service system for business operations.' },
-    { image: 'assets/transaction.PNG', title: 'Transaction System', description: 'High-throughput transaction processing platform.' },
-  ];
-
-  awards = Array.from({ length: 16 }, (_, i) => ({
-    image: `assets/recognitions/award${i + 1}.PNG`,
-    alt: `Recognition Award ${i + 1}`
-  }));
-
-  skills = [
-    'Angular', 'TypeScript', 'JavaScript', 'RxJS', 'NgRx',
-    'Node.js', 'HTML5', 'CSS3/SCSS', 'REST APIs', 'GraphQL',
-    'Git', 'CI/CD', 'Docker', 'AWS', 'Agile/Scrum',
-    'Micro Frontends', 'Web Performance', 'Unit Testing'
-  ];
-}
+export class AppComponent {}
