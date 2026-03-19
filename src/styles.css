@@ -109,7 +109,8 @@ body {
 
 /* Timeline pulsing dot animation */
 @keyframes timeline-pulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 0.4;
   }
