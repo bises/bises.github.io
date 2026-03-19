@@ -16,6 +16,8 @@ export interface Project {
   image?: string;
   icon?: string;
   accent?: string;
+  github?: string;
+  category?: 'professional' | 'side';
 }
 
 export interface Award {
@@ -206,6 +208,33 @@ export const PROJECTS: Project[] = [
     description:
       'Implemented Module Federation to enable independent team deployments, allowing React components to run inside Angular applications seamlessly.',
     tech: ['Angular', 'React', 'Module Federation', 'Webpack'],
+  },
+];
+
+export const SIDE_PROJECTS: Project[] = [
+  {
+    title: 'Goal Tracker',
+    description:
+      'A self-hosted goal tracking and task management system with hierarchical goals, integrated calendar planner, PWA support, and Docker deployment with CI/CD via GitHub Actions.',
+    tech: ['React', 'TypeScript', 'Express', 'PostgreSQL', 'Prisma', 'Auth0', 'Docker'],
+    github: 'https://github.com/bises/Goal-Tracker',
+    category: 'side',
+  },
+  {
+    title: 'Home Server Manager',
+    description:
+      'A lightweight Docker container management interface built with Flask and React. Manage Docker Compose services through a clean web UI with real-time status, container controls, and auto-discovery.',
+    tech: ['Flask', 'React', 'Docker', 'Python', 'GitHub Actions'],
+    github: 'https://github.com/bises/home-server-manager',
+    category: 'side',
+  },
+  {
+    title: 'Storium',
+    description:
+      'A storage and inventory management system with a Fastify + TypeScript backend API, Prisma ORM, and a companion React Native mobile app built with Expo for barcode scanning and on-the-go access.',
+    tech: ['Fastify', 'TypeScript', 'Prisma', 'React Native', 'Expo'],
+    github: 'https://github.com/bises/Storium',
+    category: 'side',
   },
 ];
 

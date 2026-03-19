@@ -28,12 +28,24 @@ import { SkillsComponent } from './sections/skills/skills.component';
     <app-navbar />
     <main>
       <app-hero />
+      <!-- Wave: Hero → About -->
+      <div class="bg-dark -mb-px">
+        <svg class="block w-full" viewBox="0 0 1440 60" preserveAspectRatio="none" style="height: 60px;">
+          <path d="M0,0 C360,60 1080,60 1440,0 L1440,60 L0,60 Z" class="fill-surface"/>
+        </svg>
+      </div>
       <app-about />
       <app-experience />
       <app-skills />
       <app-projects />
       <app-certifications />
       <app-education />
+      <!-- Wave: Education → Contact -->
+      <div class="bg-surface -mb-px">
+        <svg class="block w-full" viewBox="0 0 1440 60" preserveAspectRatio="none" style="height: 60px;">
+          <path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" class="fill-dark"/>
+        </svg>
+      </div>
       <app-contact />
     </main>
     <app-footer />

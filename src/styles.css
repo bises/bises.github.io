@@ -119,3 +119,19 @@ body {
     opacity: 0;
   }
 }
+
+/* Dark mode color overrides */
+.dark {
+  --color-surface: #0f172a;
+  --color-surface-alt: #1e293b;
+  --color-surface-elevated: #334155;
+  --color-text: #f1f5f9;
+  --color-text-muted: #94a3b8;
+  --color-text-light: #64748b;
+  --color-border: #334155;
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+}

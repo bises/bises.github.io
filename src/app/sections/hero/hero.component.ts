@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, signal, ViewChild } from '@angular/core';
 import { PROFILE } from '../../core/data/portfolio.data';
 
 @Component({
@@ -68,11 +68,17 @@ import { PROFILE } from '../../core/data/portfolio.data';
           <a href="#contact" class="rounded-lg border border-white/20 px-8 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/5">
             Get in Touch
           </a>
+          <a href="assets/Bishesh_Acharya_Resume.pdf" download class="inline-flex items-center gap-2 rounded-lg bg-accent px-8 py-3 text-sm font-semibold text-dark transition-all hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-lg hover:shadow-accent/25">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+            </svg>
+            Resume
+          </a>
         </div>
 
         <!-- Stats -->
-        <div class="grid grid-cols-3 gap-6">
-          <div *ngFor="let stat of profile.stats" class="text-center">
+        <div #statsContainer class="grid grid-cols-3 gap-6">
+          <div *ngFor="let stat of animatedStats()" class="text-center">
             <div class="text-3xl font-extrabold text-white">{{ stat.value }}</div>
             <div class="mt-1 text-xs tracking-wide text-white/40 uppercase">{{ stat.label }}</div>
           </div>
@@ -88,9 +94,14 @@ import { PROFILE } from '../../core/data/portfolio.data';
     </section>
   `,
 })
-export class HeroComponent implements OnInit, OnDestroy {
+export class HeroComponent implements OnInit, OnDestroy, AfterViewInit {
   profile = PROFILE;
   typedText = signal('');
+  animatedStats = signal(
+    PROFILE.stats.map(s => ({ value: '0' + s.value.replace(/\d+/, ''), label: s.label }))
+  );
+
+  @ViewChild('statsContainer') statsContainer!: ElementRef;
 
   private roles = [
     'Auth0 Certified Developer',
@@ -104,8 +115,21 @@ export class HeroComponent implements OnInit, OnDestroy {
   private isDeleting = false;
   private timer: ReturnType<typeof setTimeout> | null = null;
 
+  private statsAnimated = false;
+
   ngOnInit() {
     this.tick();
+  }
+
+  ngAfterViewInit() {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !this.statsAnimated) {
+        this.statsAnimated = true;
+        this.animateCounters();
+        observer.disconnect();
+      }
+    }, { threshold: 0.5 });
+    observer.observe(this.statsContainer.nativeElement);
   }
 
   ngOnDestroy() {
@@ -135,5 +159,25 @@ export class HeroComponent implements OnInit, OnDestroy {
     }
 
     this.timer = setTimeout(() => this.tick(), delay);
+  }
+
+  private animateCounters() {
+    PROFILE.stats.forEach((stat, i) => {
+      const match = stat.value.match(/^(\d+)(.*)$/);
+      const target = match ? +match[1] : 0;
+      const suffix = match ? match[2] : '';
+      const duration = 1500;
+      const start = performance.now();
+      const step = (now: number) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(eased * target);
+        const arr = [...this.animatedStats()];
+        arr[i] = { value: current + suffix, label: stat.label };
+        this.animatedStats.set(arr);
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
   }
 }
