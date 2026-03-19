@@ -15,11 +15,15 @@ import { RevealDirective } from '../../shared/directives/reveal.directive';
         </div>
 
         <div class="space-y-4">
-          <div
+          <a
             *ngFor="let cert of certifications; let i = index"
+            [href]="cert.link || null"
+            [attr.target]="cert.link ? '_blank' : null"
+            [attr.rel]="cert.link ? 'noopener' : null"
             appReveal
             [appRevealDelay]="i * 100"
             class="group flex items-center gap-5 rounded-2xl border border-border bg-surface-alt p-6 transition-all hover:shadow-md hover:-translate-y-0.5 hover:border-primary/30"
+            [class.cursor-pointer]="cert.link"
           >
             <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
               <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -30,15 +34,23 @@ import { RevealDirective } from '../../shared/directives/reveal.directive';
               <h3 class="text-base font-bold text-text">{{ cert.name }}</h3>
               <p class="text-sm text-text-muted">{{ cert.issuer }} · {{ cert.year }}</p>
             </div>
+            <!-- External link icon -->
+            <svg *ngIf="cert.link" class="h-4 w-4 shrink-0 text-text-light transition-colors group-hover:text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+            </svg>
             <span *ngIf="cert.status"
               class="shrink-0 rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-700">
               {{ cert.status }}
             </span>
-            <span *ngIf="!cert.status"
+            <span *ngIf="!cert.status && !cert.link"
               class="shrink-0 rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">
               Completed
             </span>
-          </div>
+            <span *ngIf="!cert.status && cert.link"
+              class="shrink-0 rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">
+              Verified
+            </span>
+          </a>
         </div>
       </div>
     </section>

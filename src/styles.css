@@ -50,7 +50,12 @@ body {
 
 /* Gradient heading utility */
 .gradient-heading {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 40%, var(--color-accent) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-light) 40%,
+    var(--color-accent) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -58,8 +63,13 @@ body {
 
 /* Typing cursor animation */
 @keyframes typing-cursor {
-  0%, 100% { border-color: var(--color-accent); }
-  50% { border-color: transparent; }
+  0%,
+  100% {
+    border-color: var(--color-accent);
+  }
+  50% {
+    border-color: transparent;
+  }
 }
 
 /* Profile photo gradient ring */
@@ -83,4 +93,28 @@ body {
   );
   filter: blur(16px);
   opacity: 0.5;
+}
+
+/* Timeline gradient line */
+.timeline-gradient-line {
+  background: linear-gradient(
+    to bottom,
+    var(--color-accent),
+    var(--color-primary-light) 30%,
+    var(--color-primary) 70%,
+    var(--color-border)
+  );
+  border-radius: 9999px;
+}
+
+/* Timeline pulsing dot animation */
+@keyframes timeline-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
 }

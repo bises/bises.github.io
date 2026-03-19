@@ -71,7 +71,6 @@ export class NavbarComponent {
     { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projects' },
     { id: 'certifications', label: 'Certifications' },
-    { id: 'recognitions', label: 'Recognitions' },
     { id: 'contact', label: 'Contact' },
   ];
 

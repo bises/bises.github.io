@@ -28,6 +28,7 @@ export interface Certification {
   issuer: string;
   year: string;
   status?: string;
+  link?: string;
 }
 
 export interface Education {
@@ -58,8 +59,7 @@ export const PROFILE = {
   stats: [
     { value: '7+', label: 'Years Experience' },
     { value: '4', label: 'Companies' },
-    { value: '3', label: 'Certifications' },
-    { value: '16', label: 'Awards' },
+    { value: '5+', label: 'Certifications' },
   ],
 };
 
@@ -214,17 +214,37 @@ export const CERTIFICATIONS: Certification[] = [
     name: 'Auth0 Certified Developer',
     issuer: 'Okta / Auth0',
     year: '2023',
+    link: 'https://www.credly.com/badges/a2fc8ced-a87e-430d-af7a-6048d23d4b9b/linked_in_profile',
   },
   {
     name: 'Applied Machine Learning and AI',
     issuer: 'Cornell University',
     year: '2025',
+    link: 'https://mycredentials.ecornell.cornell.edu/credential/NjFgEgaTaK',
   },
   {
     name: 'AI Strategy Certificate',
     issuer: 'Cornell University',
     year: '2025',
     status: 'In Progress',
+  },
+  {
+    name: 'Building Modern Projects with React',
+    issuer: 'LinkedIn',
+    year: '2022',
+    link: 'https://www.linkedin.com/learning/certificates/69d88d52d3228e92227b5901c81854c9cb69e01e50277b8c649061d9724cac46',
+  },
+  {
+    name: 'Introduction to R',
+    issuer: 'edX',
+    year: '2020',
+    link: 'https://s3.amazonaws.com/verify.edx.org/downloads/eb529fde303540e4a464c73c2aa306d0/Certificate.pdf',
+  },
+  {
+    name: 'Modelling and Simulation using MATLAB',
+    issuer: 'iversity',
+    year: '2014',
+    link: 'https://iversity.org/verify/TzONeL',
   },
 ];
 
@@ -258,8 +278,3 @@ export const TEACHING = {
     'Web Development (HTML, CSS, JavaScript, jQuery)',
   ],
 };
-
-export const AWARDS: Award[] = Array.from({ length: 16 }, (_, i) => ({
-  image: `assets/recognitions/award${i + 1}.PNG`,
-  alt: `Recognition Award ${i + 1}`,
-}));

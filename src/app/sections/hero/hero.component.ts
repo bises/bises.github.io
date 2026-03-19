@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, OnInit, OnDestroy, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { PROFILE } from '../../core/data/portfolio.data';
 
 @Component({
@@ -71,7 +71,7 @@ import { PROFILE } from '../../core/data/portfolio.data';
         </div>
 
         <!-- Stats -->
-        <div class="grid grid-cols-2 gap-6 md:grid-cols-4">
+        <div class="grid grid-cols-3 gap-6">
           <div *ngFor="let stat of profile.stats" class="text-center">
             <div class="text-3xl font-extrabold text-white">{{ stat.value }}</div>
             <div class="mt-1 text-xs tracking-wide text-white/40 uppercase">{{ stat.label }}</div>

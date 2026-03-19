@@ -7,7 +7,6 @@ import { ExperienceComponent } from './sections/experience/experience.component'
 import { SkillsComponent } from './sections/skills/skills.component';
 import { ProjectsComponent } from './sections/projects/projects.component';
 import { CertificationsComponent } from './sections/certifications/certifications.component';
-import { RecognitionsComponent } from './sections/recognitions/recognitions.component';
 import { EducationComponent } from './sections/education/education.component';
 import { ContactComponent } from './sections/contact/contact.component';
 
@@ -22,7 +21,6 @@ import { ContactComponent } from './sections/contact/contact.component';
     SkillsComponent,
     ProjectsComponent,
     CertificationsComponent,
-    RecognitionsComponent,
     EducationComponent,
     ContactComponent,
   ],
@@ -35,7 +33,6 @@ import { ContactComponent } from './sections/contact/contact.component';
       <app-skills />
       <app-projects />
       <app-certifications />
-      <app-recognitions />
       <app-education />
       <app-contact />
     </main>
