@@ -11,7 +11,7 @@ import { RevealDirective } from '../../shared/directives/reveal.directive';
       <div class="mx-auto max-w-6xl">
         <div appReveal class="mb-16 text-center">
           <p class="mb-2 text-sm font-semibold tracking-widest text-primary uppercase">Work</p>
-          <h2 class="text-3xl font-extrabold text-text md:text-4xl">Featured Projects</h2>
+          <h2 class="text-3xl font-extrabold md:text-4xl gradient-heading">Featured Projects</h2>
         </div>
 
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

@@ -10,7 +10,7 @@ import { RevealDirective } from '../../shared/directives/reveal.directive';
       <div class="mx-auto max-w-6xl">
         <div appReveal class="mb-12 text-center">
           <p class="mb-2 text-sm font-semibold tracking-widest text-primary uppercase">About Me</p>
-          <h2 class="text-3xl font-extrabold text-text md:text-4xl">Who I Am</h2>
+          <h2 class="text-3xl font-extrabold md:text-4xl gradient-heading">Who I Am</h2>
         </div>
 
         <div appReveal [appRevealDelay]="200" class="mx-auto grid max-w-5xl gap-12 md:grid-cols-2">

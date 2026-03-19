@@ -9,7 +9,7 @@ import { RevealDirective } from '../../shared/directives/reveal.directive';
     <section id="contact" class="bg-dark px-6 py-24">
       <div class="mx-auto max-w-3xl text-center">
         <div appReveal>
-          <p class="mb-2 text-sm font-semibold tracking-widest text-primary-light uppercase">Contact</p>
+          <p class="mb-2 text-sm font-semibold tracking-widest text-accent uppercase">Contact</p>
           <h2 class="mb-4 text-3xl font-extrabold text-white md:text-4xl">Let's Work Together</h2>
           <p class="mx-auto mb-10 max-w-lg text-base text-white/50">
             I'm open to senior/staff IC or tech lead roles in fintech, mortgage technology,

@@ -11,7 +11,7 @@ import { RevealDirective } from '../../shared/directives/reveal.directive';
       <div class="mx-auto max-w-6xl">
         <div appReveal class="mb-6 text-center">
           <p class="mb-2 text-sm font-semibold tracking-widest text-primary uppercase">Recognition</p>
-          <h2 class="text-3xl font-extrabold text-text md:text-4xl">Awards & Achievements</h2>
+          <h2 class="text-3xl font-extrabold md:text-4xl gradient-heading">Awards & Achievements</h2>
         </div>
 
         <p appReveal [appRevealDelay]="100" class="mx-auto mb-12 max-w-2xl text-center text-sm text-text-muted">

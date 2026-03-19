@@ -11,7 +11,7 @@ import { RevealDirective } from '../../shared/directives/reveal.directive';
       <div class="mx-auto max-w-4xl">
         <div appReveal class="mb-16 text-center">
           <p class="mb-2 text-sm font-semibold tracking-widest text-primary uppercase">Credentials</p>
-          <h2 class="text-3xl font-extrabold text-text md:text-4xl">Certifications</h2>
+          <h2 class="text-3xl font-extrabold md:text-4xl gradient-heading">Certifications</h2>
         </div>
 
         <div class="space-y-4">

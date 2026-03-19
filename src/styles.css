@@ -4,10 +4,12 @@
 @source "./**/*.html";
 
 @theme {
-  --color-primary: #2563eb;
-  --color-primary-dark: #1d4ed8;
-  --color-primary-light: #3b82f6;
-  --color-accent: #7c3aed;
+  --color-primary: #4f46e5;
+  --color-primary-dark: #4338ca;
+  --color-primary-light: #6366f1;
+  --color-accent: #f59e0b;
+  --color-accent-dark: #d97706;
+  --color-accent-light: #fbbf24;
   --color-dark: #0f172a;
   --color-dark-light: #1e293b;
   --color-dark-muted: #334155;
@@ -23,6 +25,8 @@
     "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  --animate-typing-cursor: typing-cursor 1s step-end infinite;
 }
 
 html {
@@ -42,4 +46,41 @@ body {
 ::selection {
   background: var(--color-primary);
   color: white;
+}
+
+/* Gradient heading utility */
+.gradient-heading {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 40%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Typing cursor animation */
+@keyframes typing-cursor {
+  0%, 100% { border-color: var(--color-accent); }
+  50% { border-color: transparent; }
+}
+
+/* Profile photo gradient ring */
+.profile-ring {
+  background: conic-gradient(
+    from 0deg,
+    var(--color-primary),
+    var(--color-accent),
+    var(--color-primary-light),
+    var(--color-primary)
+  );
+}
+
+.profile-ring-glow {
+  background: conic-gradient(
+    from 0deg,
+    var(--color-primary),
+    var(--color-accent),
+    var(--color-primary-light),
+    var(--color-primary)
+  );
+  filter: blur(16px);
+  opacity: 0.5;
 }

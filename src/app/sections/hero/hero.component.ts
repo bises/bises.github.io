@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal } from '@angular/core';
 import { PROFILE } from '../../core/data/portfolio.data';
 
 @Component({
@@ -14,12 +14,28 @@ import { PROFILE } from '../../core/data/portfolio.data';
         <div class="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-light/10 blur-[80px]"></div>
       </div>
 
-      <!-- Grid pattern overlay -->
-      <div class="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style="background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 60px 60px;">
+      <!-- Dot pattern overlay -->
+      <div class="pointer-events-none absolute inset-0 opacity-[0.04]"
+        style="background-image: radial-gradient(rgba(255,255,255,.4) 1px, transparent 1px); background-size: 32px 32px;">
       </div>
 
       <div class="relative z-10 mx-auto max-w-3xl text-center">
+        <!-- Profile Photo -->
+        <div class="mb-8 flex justify-center">
+          <div class="relative">
+            <!-- Glow effect behind ring -->
+            <div class="profile-ring-glow absolute -inset-1 rounded-full"></div>
+            <!-- Gradient ring -->
+            <div class="profile-ring relative h-36 w-36 rounded-full p-[3px] md:h-44 md:w-44">
+              <img
+                src="assets/profile.jpg"
+                alt="Bishesh Acharya"
+                class="h-full w-full rounded-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
         <!-- Badge -->
         <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/60 backdrop-blur-sm">
           <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -33,9 +49,12 @@ import { PROFILE } from '../../core/data/portfolio.data';
         <p class="mb-2 text-xl font-semibold text-primary-light md:text-2xl">
           {{ profile.title }}
         </p>
-        <p class="mb-8 text-base text-white/50 md:text-lg">
-          {{ profile.tagline }}
-        </p>
+
+        <!-- Typing animation -->
+        <div class="mb-8 flex h-8 items-center justify-center">
+          <span class="text-base text-accent md:text-lg font-medium">{{ typedText() }}</span>
+          <span class="ml-0.5 inline-block h-5 w-[2px] animate-typing-cursor bg-accent"></span>
+        </div>
 
         <p class="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-white/40">
           {{ profile.summary }}
@@ -69,6 +88,52 @@ import { PROFILE } from '../../core/data/portfolio.data';
     </section>
   `,
 })
-export class HeroComponent {
+export class HeroComponent implements OnInit, OnDestroy {
   profile = PROFILE;
+  typedText = signal('');
+
+  private roles = [
+    'Auth0 Certified Developer',
+    'AI & Identity Platform Specialist',
+    'IAM & Security Engineer',
+    'Full-Stack Developer',
+    'MCP Server Builder',
+  ];
+  private roleIndex = 0;
+  private charIndex = 0;
+  private isDeleting = false;
+  private timer: ReturnType<typeof setTimeout> | null = null;
+
+  ngOnInit() {
+    this.tick();
+  }
+
+  ngOnDestroy() {
+    if (this.timer) clearTimeout(this.timer);
+  }
+
+  private tick() {
+    const currentRole = this.roles[this.roleIndex];
+
+    if (this.isDeleting) {
+      this.charIndex--;
+      this.typedText.set(currentRole.substring(0, this.charIndex));
+    } else {
+      this.charIndex++;
+      this.typedText.set(currentRole.substring(0, this.charIndex));
+    }
+
+    let delay = this.isDeleting ? 40 : 80;
+
+    if (!this.isDeleting && this.charIndex === currentRole.length) {
+      delay = 2000; // pause at end
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.charIndex === 0) {
+      this.isDeleting = false;
+      this.roleIndex = (this.roleIndex + 1) % this.roles.length;
+      delay = 500; // pause before next word
+    }
+
+    this.timer = setTimeout(() => this.tick(), delay);
+  }
 }
