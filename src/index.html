@@ -1,6 +1,22 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) — only loads in production -->
+    <script>
+      if (location.hostname === "bises.github.io") {
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-K1RTVWHTKR";
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-K1RTVWHTKR");
+      }
+    </script>
+
     <meta charset="utf-8" />
     <title>Bishesh Acharya | Senior Software Engineer</title>
     <base href="/" />
