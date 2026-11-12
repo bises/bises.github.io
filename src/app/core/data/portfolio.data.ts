@@ -17,6 +17,8 @@ export interface Project {
   icon?: string;
   accent?: string;
   github?: string;
+  link?: string;
+  linkText?: string;
   category?: 'professional' | 'side';
 }
 
@@ -212,6 +214,15 @@ export const PROJECTS: Project[] = [
 ];
 
 export const SIDE_PROJECTS: Project[] = [
+  {
+    title: 'Household Budget & Cash Flow Automation',
+    description:
+      'A local-first financial intelligence engine and autopay early warning system. Integrates Plaid Production APIs, multi-institution transaction reconciliation, chronological cash-flow overdraft forecasting, and presentation decks.',
+    tech: ['Python', 'Docker', 'FastAPI', 'Plaid API', 'Tailscale', 'CI/CD'],
+    link: '/monthly-budget-automation/',
+    linkText: 'Overview',
+    category: 'side',
+  },
   {
     title: 'Goal Tracker',
     description:

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Monthly Budget Automation</title>
+  <link rel="icon" type="image/png" href="logo-512.png">
+  <style>
+    :root {
+      --bg: #F8F5EE;
+      --card-bg: #FFFFFF;
+      --navy: #173249;
+      --navy-dark: #0E1F2E;
+      --teal: #247D75;
+      --teal-light: #E7F3F1;
+      --muted: #5A6E7F;
+      --border: #E5E0D5;
+      --shadow: 0 4px 20px rgba(23, 50, 73, 0.06);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+    header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .brand img {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+    }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      margin-left: 18px;
+    }
+    nav a:hover {
+      color: var(--navy);
+    }
+    .content-container {
+      max-width: 900px;
+      margin: 40px auto 60px;
+      padding: 40px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+    h1 {
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--navy-dark);
+      margin-bottom: 8px;
+    }
+    .meta {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+    p {
+      color: #334E68;
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+    ul {
+      margin-left: 24px;
+      margin-bottom: 16px;
+      color: #334E68;
+      font-size: 15px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .highlight-box {
+      background: var(--teal-light);
+      border-left: 4px solid var(--teal);
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin: 24px 0;
+      font-size: 15px;
+      color: var(--navy-dark);
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    footer a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <img src="logo-512.png" alt="Logo">
+        <span>Monthly Budget Automation</span>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content-container">
+    <h1>Privacy Policy</h1>
+    <div class="meta">Effective Date: November 11, 2026 &bull; Last Updated: November 11, 2026</div>
+
+    <div class="highlight-box">
+      <strong>Core Commitment:</strong> Monthly Budget Automation is a self-hosted, personal finance automation tool. We operate under a strict <strong>Zero Data Collection</strong> policy. Your financial data is fetched directly to your local computer and is never transmitted to, stored on, or monetized by any remote third-party cloud database or server.
+    </div>
+
+    <h2>1. Overview and Scope</h2>
+    <p>This Privacy Policy explains how <strong>Monthly Budget Automation</strong> ("we", "our", or "the application") handles information when you use the software. The application is designed as a local-first utility to ingest, reconcile, and visualize personal household financial data.</p>
+
+    <h2>2. Information We Access via Plaid</h2>
+    <p>To provide automated monthly budgeting, the application integrates with <strong>Plaid Inc.</strong> ("Plaid") to connect to your financial institutions. Through Plaid, the application requests access solely to:</p>
+    <ul>
+      <li><strong>Read-Only Transaction History:</strong> Transaction dates, descriptions, merchant names, amounts, and category labels.</li>
+      <li><strong>Account Details:</strong> Account names, institution names, official account types, and current/available balances.</li>
+    </ul>
+
+    <h2>3. Information We Never Access or Store</h2>
+    <ul>
+      <li><strong>No Banking Passwords or Credentials:</strong> You authenticate directly with your financial institutions using Plaid Link. Your login credentials, security questions, and multi-factor authentication (MFA) codes are handled exclusively by Plaid and your financial institution. They are never transmitted to or accessible by this application.</li>
+      <li><strong>No Payment or Money Movement Capabilities:</strong> The application does not use Plaid Auth or Transfer APIs; it cannot initiate payments, move funds, or alter accounts.</li>
+    </ul>
+
+    <h2>4. How Information is Processed and Stored (Local Sovereignty)</h2>
+    <p>Unlike commercial SaaS tools, Monthly Budget Automation runs locally on your own computer:</p>
+    <ul>
+      <li><strong>Local Processing:</strong> All transaction categorization, rules filtering, store aggregation, and report generation occur strictly in your local Python environment (<code>localhost:8000</code>).</li>
+      <li><strong>Local Storage:</strong> Plaid access tokens and transaction records are saved locally on your private filesystem (within your local repository and private Obsidian vault).</li>
+      <li><strong>Zero Remote Servers:</strong> We do not operate cloud databases, analytics pipelines, telemetry servers, or user-tracking endpoints.</li>
+    </ul>
+
+    <h2>5. Absolute Prohibition on Data Sharing or Selling</h2>
+    <p>We do not sell, rent, trade, monetize, lease, or share your financial data or personal identity with any third parties, advertising networks, analytics providers, or data brokers. Your financial records remain entirely your own.</p>
+
+    <h2>6. Plaid's Privacy Policy</h2>
+    <p>The transmission of financial information between your institution and the local application is mediated by Plaid. For details regarding how Plaid protects and manages banking connections, please refer to <a href="https://plaid.com/legal/" target="_blank" rel="noopener">Plaid's End User Privacy Policy</a>.</p>
+
+    <h2>7. User Control, Revocation, and Data Deletion</h2>
+    <p>You maintain complete control over your accounts and data at all times:</p>
+    <ul>
+      <li><strong>Revoking Institution Access:</strong> You can disconnect bank accounts at any time through your financial institution's security portal or by deleting the corresponding token from your local application.</li>
+      <li><strong>Data Deletion:</strong> Deleting your local project folder and local database files permanently deletes all cached transaction records from your hardware.</li>
+    </ul>
+
+    <h2>8. Contact & Privacy Inquiries</h2>
+    <p>If you have any questions or feedback regarding this Privacy Policy or the security of the application, please reach out to the project maintainer:</p>
+    <ul>
+      <li><strong>Project:</strong> Monthly Budget Automation</li>
+      <li><strong>Maintainer:</strong> Bishesh Acharya (<a href="mailto:acharya.bises@gmail.com">acharya.bises@gmail.com</a>)</li>
+      <li><strong>Portfolio:</strong> <a href="https://bises.github.io">bises.github.io</a></li>
+    </ul>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Monthly Budget Automation. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
